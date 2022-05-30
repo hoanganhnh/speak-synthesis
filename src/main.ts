@@ -3,7 +3,7 @@ import "./styles/style.css";
 const synth = window.speechSynthesis;
 
 const inputForm = document.querySelector("form");
-const inputTxt = document.querySelector(".txt") as HTMLInputElement;
+const inputTxt = document.querySelector(".txt") as HTMLTextAreaElement;
 const voiceSelect = document.querySelector("select");
 
 const pitch = document.querySelector("#pitch") as HTMLInputElement;
@@ -50,8 +50,8 @@ function populateVoiceList() {
 
 populateVoiceList();
 
-if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = populateVoiceList;
+if (window.speechSynthesis.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = populateVoiceList;
 }
 
 function speak() {
